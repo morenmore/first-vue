@@ -3,7 +3,6 @@
     <v-text-field
       v-model="id"
       :error-messages="idErrors"
-      :counter="10"
       label="아이디"
       required
       @input="$v.id.$touch()"
