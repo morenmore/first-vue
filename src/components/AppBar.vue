@@ -20,16 +20,19 @@
       />
     </div>
 
-    <v-spacer></v-spacer>
+    <v-spacer> test </v-spacer>
 
-    <v-btn
-      href="https://github.com/vuetifyjs/vuetify/releases/latest"
+    <!-- <v-btn
+      :to = ""
       target="_blank"
       text
-    >
-      <span class="mr-2">Latest Release</span>
-      <v-icon>mdi-open-in-new</v-icon>
-    </v-btn>
+    > -->
+    <router-link to="/login">
+      <v-btn target="_blank" text>
+        <v-icon>mdi-account</v-icon>
+        <span class="mr-2">LOGIN</span>
+      </v-btn>
+    </router-link>
   </v-app-bar>
 </template>
 
