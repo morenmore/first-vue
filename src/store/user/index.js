@@ -7,14 +7,16 @@ const state = {
 
 /** mutations */
 const mutations = {
-  changeMessage (state, newMsg) {
-    // state.message = newMsg;
+  setUser (state, user) {
+    // state.id = user.id;
+    // state.id = user.name;
+    // state.id = user.email;
   }
 }
 
 /** actions */
 const actions = {
-  callMutation ({ state, commit }, { newMsg }) {
+  getUser ({ state, commit }, { newMsg }) {
     // commit("changeMessage", newMsg);
   }
 }
