@@ -1,6 +1,8 @@
 /** state */
 const state = {
-  message: 'Hello'
+  id: null,
+  name: null,
+  email: null
 }
 
 /** mutations */
