@@ -40,7 +40,7 @@ export default {
   }),
 
   computed: {
-    ...userMapState(['id', 'name', 'email']),
+    ...userMapState({ userid: 'id', userName: 'name', userEmail: 'email' }),
     idErrors () {
       const errors = []
       if (!this.$v.id.$dirty) return errors
@@ -56,9 +56,10 @@ export default {
   },
 
   methods: {
-    ...userMapActions(['getUser']),
+    ...userMapActions(['FETCH_USER']),
     submit () {
       this.$v.$touch()
+      this.FETCH_USER({ id: this.id, password: this.password })
     },
     clear () {
       this.$v.$reset()

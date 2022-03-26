@@ -1,23 +1,34 @@
+import { fetchUserInfo } from '../../api/login'
 /** state */
 const state = {
   id: null,
   name: null,
+  password: null,
   email: null
 }
 
 /** mutations */
 const mutations = {
-  setUser (state, user) {
-    // state.id = user.id;
-    // state.id = user.name;
-    // state.id = user.email;
+  SET_USER (state, user) {
+    console.log(user)
+    state.id = user.id
+    state.name = user.name
+    state.email = user.email
   }
 }
 
 /** actions */
 const actions = {
-  getUser ({ state, commit }, { newMsg }) {
-    // commit("changeMessage", newMsg);
+  FETCH_USER ({ commit }, { id, password }) {
+    console.log('id, password', id, password)
+    fetchUserInfo(id, password)
+      .then(({ data }) => {
+        console.log(data)
+        commit('SET_USER', data.user)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 
@@ -29,6 +40,7 @@ const getters = {
 }
 
 export default {
+  namespaced: true,
   state,
   mutations,
   actions,
