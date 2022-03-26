@@ -1,13 +1,14 @@
 import axios from 'axios'
 
 const config = {
-  baseUrl: 'http://127.0.0.1:3000'
+  baseUrl: ''
 }
 
-function fetchLogin () {
-  return axios.post(`${config.baseUrl}/login`)
+function fetchUserInfo (id, password) {
+  console.log('data', id, password)
+  return axios.post(`${config.baseUrl}/login`, { id, password })
 }
 export {
-  fetchLogin
+  fetchUserInfo
   //
 }
