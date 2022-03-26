@@ -26,8 +26,7 @@ import { createNamespacedHelpers } from 'vuex'
 
 import { required } from 'vuelidate/lib/validators'
 
-const { mapState: userMapState, mapActions: userMapActions } =
-  createNamespacedHelpers('user')
+const { mapActions: userMapActions } = createNamespacedHelpers('user')
 export default {
   validations: {
     id: { required },
@@ -40,7 +39,6 @@ export default {
   }),
 
   computed: {
-    ...userMapState({ userid: 'id', userName: 'name', userEmail: 'email' }),
     idErrors () {
       const errors = []
       if (!this.$v.id.$dirty) return errors
@@ -60,6 +58,7 @@ export default {
     submit () {
       this.$v.$touch()
       this.FETCH_USER({ id: this.id, password: this.password })
+      this.$router.push({ name: 'Home' })
     },
     clear () {
       this.$v.$reset()

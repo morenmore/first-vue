@@ -4,16 +4,17 @@ const state = {
   id: null,
   name: null,
   password: null,
-  email: null
+  email: null,
+  token: null
 }
 
 /** mutations */
 const mutations = {
-  SET_USER (state, user) {
-    console.log(user)
+  SET_USER (state, { user, token }) {
     state.id = user.id
     state.name = user.name
     state.email = user.email
+    state.token = token
   }
 }
 
@@ -24,7 +25,7 @@ const actions = {
     fetchUserInfo(id, password)
       .then(({ data }) => {
         console.log(data)
-        commit('SET_USER', data.user)
+        commit('SET_USER', data)
       })
       .catch((error) => {
         console.log(error)

@@ -20,24 +20,40 @@
       />
     </div>
 
-    <v-spacer> test </v-spacer>
+    <v-spacer> </v-spacer>
 
     <!-- <v-btn
       :to = ""
       target="_blank"
       text
     > -->
-    <router-link to="/login">
+    <template v-if="!token">
+      <router-link to="/login">
+        <v-btn target="_blank" text>
+          <v-icon>mdi-account</v-icon>
+          <span class="mr-2">LOGIN</span>
+        </v-btn>
+      </router-link>
+    </template>
+    <template v-else>
+      <span class="mr-2">{{ name }}님 반갑습니다.</span>
       <v-btn target="_blank" text>
-        <v-icon>mdi-account</v-icon>
-        <span class="mr-2">LOGIN</span>
+        <span class="mr-2">LOGOUT</span>
       </v-btn>
-    </router-link>
+    </template>
   </v-app-bar>
 </template>
 
 <script>
-export default {}
+import { createNamespacedHelpers } from 'vuex'
+
+const { mapState: userMapState } = createNamespacedHelpers('user')
+
+export default {
+  computed: {
+    ...userMapState(['id', 'name', 'email', 'token'])
+  }
+}
 </script>
 
 <style></style>
