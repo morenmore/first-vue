@@ -1,11 +1,26 @@
-class UserInfo {
-  // 이름
+class user {
+  static get id () {
+    return localStorage.getItem('id') || ''
+  }
+
+  static set id (value) {
+    localStorage.setItem('id', value)
+  }
+
   static get name () {
     return localStorage.getItem('name') || ''
   }
 
   static set name (value) {
     localStorage.setItem('name', value)
+  }
+
+  static get email () {
+    return localStorage.getItem('email') || ''
+  }
+
+  static set email (value) {
+    localStorage.setItem('email', value)
   }
 
   static get token () {
@@ -17,9 +32,13 @@ class UserInfo {
   }
 
   // 초기화
-  static Clear () {
-    localStorage.setItem('name', '')
+  static clear () {
+    localStorage.removeItem('id')
+    localStorage.removeItem('name')
+    localStorage.removeItem('email')
+    localStorage.removeItem('token')
+    location.reload()
   }
 }
 
-export default { UserInfo }
+export default { user }

@@ -27,19 +27,19 @@
       target="_blank"
       text
     > -->
-    <template v-if="!$user.token">
+    <template v-if="$user.token">
+      <span class="mr-2">{{ $user.name }}님 반갑습니다.</span>
+      <v-btn target="_blank" text @click="$user.clear">
+        <span class="mr-2">LOGOUT</span>
+      </v-btn>
+    </template>
+    <template v-else>
       <router-link to="/login">
         <v-btn target="_blank" text>
           <v-icon>mdi-account</v-icon>
           <span class="mr-2">LOGIN</span>
         </v-btn>
       </router-link>
-    </template>
-    <template v-else>
-      <span class="mr-2">{{ $user.name }}님 반갑습니다.</span>
-      <v-btn target="_blank" text>
-        <span class="mr-2">LOGOUT</span>
-      </v-btn>
     </template>
   </v-app-bar>
 </template>
@@ -53,12 +53,8 @@ export default {
   computed: {
     ...userMapState(['id', 'name', 'email', 'token'])
   },
-  methods: {
-    SetLogin () {
-      this.$user.name = localStorage.getItem('name')
-      this.$user.token = localStorage.getItem('token')
-    }
-  }
+  mounted () {},
+  methods: {}
 }
 </script>
 

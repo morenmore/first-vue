@@ -8,7 +8,7 @@ import globalinfo from './util/globalInfo'
 
 Vue.use(Vuelidate)
 Vue.config.productionTip = false
-Vue.prototype.$user = globalinfo.UserInfo
+Vue.prototype.$user = globalinfo.user
 
 new Vue({
   router,

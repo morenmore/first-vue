@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { fetchUserInfo } from '../../api/login'
+
 /** state */
 const state = {
   id: null,
@@ -16,7 +17,9 @@ const mutations = {
     state.name = user.name
     state.email = user.email
     state.token = token
+    localStorage.setItem('id', user.id)
     localStorage.setItem('name', user.name)
+    localStorage.setItem('email', user.email)
     localStorage.setItem('token', token)
     axios.defaults.headers.common.Authorization = `Bearer ${token}`
   }
@@ -25,10 +28,8 @@ const mutations = {
 /** actions */
 const actions = {
   FETCH_USER ({ commit }, { id, password }) {
-    console.log('id, password', id, password)
     fetchUserInfo(id, password)
       .then(({ data }) => {
-        console.log('data >>>', data)
         commit('SET_USER', data)
       })
       .catch((error) => {
