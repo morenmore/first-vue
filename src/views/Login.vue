@@ -1,6 +1,7 @@
 <template>
   <form style="margin: 100px">
     <v-text-field
+      type="text"
       v-model="id"
       :error-messages="idErrors"
       label="아이디"
@@ -9,12 +10,15 @@
       @blur="$v.id.$touch()"
     ></v-text-field>
     <v-text-field
+      type="password"
       v-model="password"
       :error-messages="passwordErrors"
       label="비밀번호"
       required
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
+      hint="적어도 5글자 이상 입력하세요."
+      min="5"
     ></v-text-field>
     <v-btn class="mr-4" @click="submit"> submit </v-btn>
     <v-btn @click="clear"> clear </v-btn>
