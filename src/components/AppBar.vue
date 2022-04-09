@@ -45,17 +45,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
+// import { createNamespacedHelpers } from 'vuex'
 
-const { mapState: userMapState } = createNamespacedHelpers('user')
+// const { mapState: userMapState } = createNamespacedHelpers('user')
 
-export default {
-  computed: {
-    ...userMapState(['id', 'name', 'email', 'token'])
-  },
-  mounted () {},
-  methods: {}
-}
+export default {}
 </script>
 
 <style></style>

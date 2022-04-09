@@ -55,9 +55,9 @@ export default {
 
   methods: {
     ...userMapActions(['FETCH_USER']),
-    submit () {
+    async submit () {
       this.$v.$touch()
-      this.FETCH_USER({ id: this.id, password: this.password })
+      await this.FETCH_USER({ id: this.id, password: this.password })
       this.$router.push({ name: 'Home' })
     },
     clear () {
