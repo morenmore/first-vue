@@ -15,6 +15,15 @@ class user {
     localStorage.setItem('name', value)
   }
 
+  static get initials () {
+    let initials = ''
+    const names = localStorage.getItem('name').split(' ')
+    for (let n = 0; n < names.length; n++) {
+      initials += names[n].substring(0, 1).toUpperCase()
+    }
+    return initials || ''
+  }
+
   static get email () {
     return localStorage.getItem('email') || ''
   }
