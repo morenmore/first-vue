@@ -1,19 +1,13 @@
 <template>
-  <div ref="editor">
-    <p>Hello World!</p>
-    <p>Some initial <strong>bold</strong> text</p>
-    <p><br /></p>
-  </div>
+  <quill-editor></quill-editor>
 </template>
 
 <script>
+import QuillEditor from '@/components/QuillEditor'
 export default {
-  data () {
-    return {
-      editor: null
-    }
-  },
-  mounted () {}
+  components: {
+    QuillEditor
+  }
 }
 </script>
 
