@@ -13,7 +13,6 @@ Vue.prototype.$user = globalinfo.user
 new Vue({
   router,
   store,
-  quill,
   vuetify,
   render: (h) => h(App)
 }).$mount('#app')
